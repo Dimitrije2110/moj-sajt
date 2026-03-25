@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Pozivnica</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+        margin-top: 100px;
+        background-color: #ffe6f0;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 20px;
+        cursor: pointer;
+        position: absolute;
+        transition: all 0.2s ease;
+    }
+    #yes {
+        left: 40%;
+    }
+    #no {
+        left: 55%;
+    }
+</style>
+</head>
+<body>
+<img src="123.jpg" width="400" height="400">
+<h1 id="question">Da li želiš da ideš sa mnom na maturu?</h1>
+
+<button id="yes" onclick="alert('Tako sam i mislio')">DA</button>
+<button id="no">NE</button>
+
+<script>
+const noBtn = document.getElementById("no");
+const question = document.getElementById("question");
+
+const messages = [
+    "Da li želiš da ideš sa mnom na maturu?",
+    "Sigurna si? ",
+    "Baš baš sigurna? ",
+    "Razmisli još malo ",
+    "Ajde nemoj to ",
+    "Molim te? ",
+    "Ovo je poslednja šansa "
+
+];
+
+let i = 0;
+
+noBtn.addEventListener("mouseover", () => {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    // promena teksta
+    i++;
+    if (i < messages.length) {
+        question.textContent = messages[i];
+    }
+});
+</script>
+
+</body>
+</html>
